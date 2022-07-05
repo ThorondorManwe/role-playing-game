@@ -70,7 +70,8 @@ const hero = {
     name: "Wizard", 
     avatar: "images/wizard.png", 
     health: 60, 
-    diceRoll: 6,
+    diceRoll: [3, 1, 4],
+    diceCount: 3,
 };
 
 const monster = {
@@ -78,15 +79,31 @@ const monster = {
     name: "Orc", 
     avatar: "images/orc.png", 
     health: 10, 
-    diceRoll: 4,
+    diceRoll: [2],
+    diceCount: 1,
 };
 
 // CHALLENGE
 // 1. Deconstruct the data object 
 // 2. Update the template string as necessary
 
+
+// CHALLENGE
+// Update this for loop so it uses a value from the 
+// new diceRoll array to render out the dice so the 
+// wizard's dice have values of 3, 1 and 4, and the
+// orc's single dice has a value of 2.
+
+
+
 function renderCharacter(data) {
     const {elementId, name, avatar, health, diceRoll} = data;
+    let diceHtml = '';
+
+    for (let i = 0; i < diceRoll.length; i++) {
+        diceHtml += `<div class="dice">${diceRoll[i]}</div>`
+    }
+
     document.getElementById(elementId).innerHTML =
         `<div class="character-card">
             <h4 class="name"> ${name} </h4>
