@@ -78,12 +78,28 @@ Challenge
 **hint.md for help**
 */
 
-function getDiceRollArray(diceCount) {
+/* Challenge: 
+1. Replace the for loop in getDiceRollArray with a new Array() and fill it 
+with 0s as its initial state. The new array should be diceRoll length.
+2. Use .map() directly on the array rather than declaring any new variables 
+and return a random number from 1-6 in each element of the array.
+3. Make sure you delete anything from that function that we no longer need.
+*/ 
+
+
+
+/* function getDiceRollArray(diceCount) {
     let newDiceRolls = [];
     for (let i = 0; i < diceCount; i++) {
         newDiceRolls.push(Math.floor(Math.random() * 6) + 1);
     }
     return newDiceRolls;
+} */
+
+function getDiceRollArray(diceCount) {
+    return new Array(diceCount).fill(0).map(function(){
+        return Math.floor(Math.random() * 6) + 1
+    })
 }
 
 function getDiceHtml(diceCount){
