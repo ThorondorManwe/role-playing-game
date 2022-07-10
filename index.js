@@ -9,20 +9,10 @@ function getNewMonster() {
     return nextMonsterData ? new Character(nextMonsterData) : {}
 }
 
-/*
-Challenge
-1. Disable the user's ability to attack when a monster dies.
-2. Reneable the user's ability to attack when a new monster
-loads.
-3. When the game is over, disable the user's ability to attack.
-**hint.md for help!!**
-*/
-
-
 function attack() {
     if(!isWaiting){
-        wizard.getDiceHtml()
-        monster.getDiceHtml()
+        wizard.setDiceHtml()
+        monster.setDiceHtml()
         wizard.takeDamage(monster.currentDiceScore)
         monster.takeDamage(wizard.currentDiceScore)
         render()
@@ -44,7 +34,6 @@ function attack() {
             }
         }    
     }
-
 }
 
 function endGame() {
